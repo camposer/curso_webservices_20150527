@@ -15,7 +15,7 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 	<!-- END: Importando clases del BUS -->
 
 	<!-- Servicios SOAP -->
-	<!-- http://localhost:8080/service/HolaMundoSoap?wsdl -->
+	<!-- http://localhost:8080/basico/service/HolaMundoSoap?wsdl -->
 	<jaxws:endpoint implementor="webservice.HolaMundoSoapImpl"
 		address="/HolaMundoSoap" />
 

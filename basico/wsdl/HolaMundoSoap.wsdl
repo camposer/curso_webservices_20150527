@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="HolaMundoSoapImplService" targetNamespace="http://webservice/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice/" elementFormDefault="unqualified" targetNamespace="http://webservice/" version="1.0">
+
+  <xs:element name="despedir" type="tns:despedir"/>
+
+  <xs:element name="despedirResponse" type="tns:despedirResponse"/>
+
+  <xs:element name="saludar" type="tns:saludar"/>
+
+  <xs:element name="saludarResponse" type="tns:saludarResponse"/>
+
+  <xs:complexType name="despedir">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="despedirResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saludar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="saludarResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="despedirResponse">
+    <wsdl:part element="tns:despedirResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="despedir">
+    <wsdl:part element="tns:despedir" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saludar">
+    <wsdl:part element="tns:saludar" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saludarResponse">
+    <wsdl:part element="tns:saludarResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HolaMundoSoap">
+    <wsdl:operation name="despedir">
+      <wsdl:input message="tns:despedir" name="despedir">
+    </wsdl:input>
+      <wsdl:output message="tns:despedirResponse" name="despedirResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saludar">
+      <wsdl:input message="tns:saludar" name="saludar">
+    </wsdl:input>
+      <wsdl:output message="tns:saludarResponse" name="saludarResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HolaMundoSoapImplServiceSoapBinding" type="tns:HolaMundoSoap">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="despedir">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="despedir">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="despedirResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="saludar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="saludar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saludarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HolaMundoSoapImplService">
+    <wsdl:port binding="tns:HolaMundoSoapImplServiceSoapBinding" name="HolaMundoSoapImplPort">
+      <soap:address location="http://localhost:8080/basico/service/HolaMundoSoap"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
