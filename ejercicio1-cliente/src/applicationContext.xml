@@ -9,7 +9,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
 http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
-	<jaxws:client id="calculadoraSoapClient" serviceClass="webservice.calculadora.CalculadoraSoapImpl"
+	<jaxws:client id="calculadoraSoapClient" serviceClass="webservice.calculadora.CalculadoraSoap"
 		address="http://localhost:1234/ejercicio1/service/CalculadoraSoap" />
 		
 </beans>

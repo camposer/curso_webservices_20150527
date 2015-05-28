@@ -5,17 +5,17 @@ import java.util.Scanner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import webservice.calculadora.CalculadoraSoapImpl;
+import webservice.calculadora.CalculadoraSoap;
 
 public class Principal {
 	private Scanner scanner;
-	private CalculadoraSoapImpl calculadoraSoap;
+	private CalculadoraSoap calculadoraSoap;
 	
 	@SuppressWarnings("resource")
 	public Principal() {
 		scanner = new Scanner(System.in);
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		calculadoraSoap = ctx.getBean(CalculadoraSoapImpl.class);
+		calculadoraSoap = ctx.getBean(CalculadoraSoap.class);
 	}
 	
 	public static void main(String[] args) {
@@ -42,15 +42,15 @@ public class Principal {
 			if (opcion.equals("1"))
 				System.out.println(a + " + " + b + " = " + 
 						calculadoraSoap.sum(a, b));
-//			else if (opcion.equals("2"))
-//				System.out.println(a + " - " + b + " = " + 
-//						calculadoraSoap.restar(a, b));
+			else if (opcion.equals("2"))
+				System.out.println(a + " - " + b + " = " + 
+						calculadoraSoap.substract(a, b));
 			else if (opcion.equals("3"))
 				System.out.println(a + " * " + b + " = " + 
-						calculadoraSoap.multiplicar(a, b));
+						calculadoraSoap.multiply(a, b));
 			else if (opcion.equals("4"))
 				System.out.println(a + " / " + b + " = " + 
-						calculadoraSoap.dividir(a, b));
+						calculadoraSoap.divide(a, b));
 		}
 	}
 }

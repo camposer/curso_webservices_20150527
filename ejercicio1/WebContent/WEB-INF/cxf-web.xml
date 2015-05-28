@@ -15,7 +15,7 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
 	<!-- Servicios SOAP -->
 	<!-- http://localhost:8080/ejercicio1/service/CalculadoraSoap?wsdl -->
-	<jaxws:endpoint implementor="webservice.CalculadoraSoapImpl"
+	<jaxws:endpoint implementor="webservice.CalculadoraSoap"
 		address="/CalculadoraSoap" />
 
 
