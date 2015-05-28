@@ -19,5 +19,27 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 	<jaxws:endpoint implementor="webservice.HolaMundoSoapImpl"
 		address="/HolaMundoSoap" />
 
+	<!-- Servicios REST -->
+	<bean id="holaMundoRest" class="webservice.HolaMundoRestImpl" />
+	
+	<!-- Le permite a CXF producir y consumir JSON -->
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+	
+	<!-- GET http://localhost:8080/basico/service/rest/saludar/Rodolfo -->
+	<!-- 
+		POST http://localhost:8080/basico/service/rest/despedir
+		Content-type: application/json
+		{
+			"nombre": "Rodolfo"
+		}
+	 -->
+	<jaxrs:server address="/rest/">
+		<jaxrs:serviceBeans>
+			<ref bean="holaMundoRest" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref bean='jsonProvider' />
+		</jaxrs:providers>
+	</jaxrs:server>
 
 </beans>
