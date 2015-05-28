@@ -16,7 +16,9 @@ public class ClienteHolaMundo {
 		HolaMundoSoap holaMundoSoap = 
 				ctx.getBean("holaMundoSoapClient", HolaMundoSoap.class);
 		
-		System.out.println(holaMundoSoap.saludar("Rodolfo"));
+		String nombre = "Rodolfo";
+		System.out.println(holaMundoSoap.saludar(nombre));
+		System.out.println(holaMundoSoap.despedir(nombre));
 	}
 	
 	public static void main(String[] args) {
