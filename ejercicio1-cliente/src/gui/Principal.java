@@ -5,17 +5,17 @@ import java.util.Scanner;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import webservice.calculadora.CalculadoraSoap;
+import proxy.CalculadoraProxy;
 
 public class Principal {
 	private Scanner scanner;
-	private CalculadoraSoap calculadoraSoap;
+	private CalculadoraProxy calculadoraProxy;
 	
 	@SuppressWarnings("resource")
 	public Principal() {
 		scanner = new Scanner(System.in);
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-		calculadoraSoap = ctx.getBean(CalculadoraSoap.class);
+		calculadoraProxy = ctx.getBean("calculadoraProxyRest", CalculadoraProxy.class);
 	}
 	
 	public static void main(String[] args) {
@@ -41,16 +41,16 @@ public class Principal {
 			
 			if (opcion.equals("1"))
 				System.out.println(a + " + " + b + " = " + 
-						calculadoraSoap.sum(a, b));
+						calculadoraProxy.sumar(a, b));
 			else if (opcion.equals("2"))
 				System.out.println(a + " - " + b + " = " + 
-						calculadoraSoap.substract(a, b));
+						calculadoraProxy.restar(a, b));
 			else if (opcion.equals("3"))
 				System.out.println(a + " * " + b + " = " + 
-						calculadoraSoap.multiply(a, b));
+						calculadoraProxy.multiplicar(a, b));
 			else if (opcion.equals("4"))
 				System.out.println(a + " / " + b + " = " + 
-						calculadoraSoap.divide(a, b));
+						calculadoraProxy.dividir(a, b));
 		}
 	}
 }

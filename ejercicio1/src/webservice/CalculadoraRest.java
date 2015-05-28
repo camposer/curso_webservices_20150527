@@ -22,7 +22,7 @@ public class CalculadoraRest {
 	
 	@POST
 	@Path("")
-	public JsonResponse sumar(CalculadoraRequest calculadoraRequest) {
+	public JsonResponse calcular(CalculadoraRequest calculadoraRequest) {
 		try {			
 			Float resultado = null;
 			

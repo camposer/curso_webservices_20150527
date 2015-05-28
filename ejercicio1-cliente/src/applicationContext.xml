@@ -9,7 +9,27 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
 http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 
+	<!-- SOAP -->
+	<bean id="calculadoraProxySoap" class="proxy.CalculadoraProxySoap">
+		<property name="calculadoraSoap" ref="calculadoraSoapClient"/>
+	</bean>
+
 	<jaxws:client id="calculadoraSoapClient" serviceClass="webservice.calculadora.CalculadoraSoap"
 		address="http://localhost:1234/ejercicio1/service/CalculadoraSoap" />
 		
+	<!-- REST -->
+	<bean id="calculadoraProxyRest" class="proxy.CalculadoraProxyRest">
+		<property name="calculadoraRest" ref="calculadoraRestClient"/>
+	</bean>
+
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+	
+	<jaxrs:client id="calculadoraRestClient" 
+		serviceClass="webservice.CalculadoraRest"
+		address="http://localhost:8080/ejercicio1/service/calculadora">
+		
+		<jaxrs:providers>
+			<ref bean='jsonProvider' />
+		</jaxrs:providers>
+	</jaxrs:client>
 </beans>
