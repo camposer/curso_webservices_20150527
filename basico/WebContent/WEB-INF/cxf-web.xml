@@ -33,7 +33,7 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 			"nombre": "Rodolfo"
 		}
 	 -->
-	<jaxrs:server address="/rest/">
+	<jaxrs:server address="/">
 		<jaxrs:serviceBeans>
 			<ref bean="holaMundoRest" />
 		</jaxrs:serviceBeans>

@@ -17,6 +17,29 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 	<!-- http://localhost:8080/ejercicio1/service/CalculadoraSoap?wsdl -->
 	<jaxws:endpoint implementor="webservice.CalculadoraSoap"
 		address="/CalculadoraSoap" />
+		
+	<!-- Servicios REST -->
+	<!-- 
+		POST http://localhost:8080/ejercicio1/service/calculadora
+		Content-type: application/json
+		{
+			"operacion": "SUMA",
+			"op1": 2,
+			"op2": 2
+		}	
+	
+	 -->
+	
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+	
+	<jaxrs:server address="/calculadora">
+		<jaxrs:serviceBeans>
+			<ref bean="calculadoraRest" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<ref bean='jsonProvider' />
+		</jaxrs:providers>
+	</jaxrs:server>
 
 
 </beans>

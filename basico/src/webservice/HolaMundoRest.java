@@ -15,11 +15,11 @@ import webservice.response.DespedirResponse;
 @Produces("application/json")
 public interface HolaMundoRest {
 	@GET
-	@Path("saludar/{nombre}")
+	@Path("/saludar/{nombre}")
 	Map<String, String> saludar(@PathParam("nombre") String nombre);
 	
 	@POST
-	@Path("despedir")
+	@Path("/despedir")
 	@Consumes("application/json")
 	DespedirResponse despedir(DespedirRequest despedirRequest);
 }
