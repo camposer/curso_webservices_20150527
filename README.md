@@ -32,6 +32,9 @@ http://www.ibm.com/developerworks/library/ws-whichwsdl/
 - Especificación de JAX-WS (en)
 https://jcp.org/en/jsr/detail?id=224
 
+- Tutorial de anotaciones JAX-WS (en)
+https://jax-ws.java.net/2.2.10/docs/ch03.html#users-guide-annotations
+
 - Especificación de JAX-RS (en)
 https://jcp.org/en/jsr/detail?id=311
 
