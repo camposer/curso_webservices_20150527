@@ -2,6 +2,17 @@ package model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "person")
+@XmlType(name = "person" ,propOrder = {
+	"id",
+	"nombre",
+	"apellido",
+	"fechaNacimiento"
+})
 public class Persona {
 	private Integer id;
 	private String nombre;
@@ -16,7 +27,8 @@ public class Persona {
 		this.nombre = nombre;
 		this.apellido = apellido;
 	}
-	
+
+	@XmlElement(name = "id")
 	public Integer getId() {
 		return id;
 	}
@@ -25,6 +37,7 @@ public class Persona {
 		this.id = id;
 	}
 	
+	@XmlElement(name = "name", required = true)
 	public String getNombre() {
 		return nombre;
 	}
@@ -33,6 +46,7 @@ public class Persona {
 		this.nombre = nombre;
 	}
 	
+	@XmlElement(name = "last-name", required = true)
 	public String getApellido() {
 		return apellido;
 	}
@@ -41,6 +55,7 @@ public class Persona {
 		this.apellido = apellido;
 	}
 	
+	@XmlElement(name = "birth-date")
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
 	}
