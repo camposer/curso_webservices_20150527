@@ -12,6 +12,7 @@ import webservice.response.JsonResponse;
 @Consumes("application/json")
 public interface CalculadoraRest {
 	@POST
-	@Path("/calculadora")
+	@Path("")
 	public JsonResponse calcular(CalculadoraRequest calculadoraRequest);
 }
+

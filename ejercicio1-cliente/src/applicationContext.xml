@@ -27,7 +27,7 @@ http://cxf.apache.org/jaxrs-client http://cxf.apache.org/schemas/jaxrs-client.xs
 	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
 
 	<jaxrs-client:client id="calculadoraRestClient" serviceClass="webservice.CalculadoraRest"
-		address="http://localhost:8080/ejercicio1/service">
+		address="http://localhost:1234/ejercicio1/service/calculadora">
 
 		<jaxrs-client:providers>
 			<ref bean='jsonProvider' />

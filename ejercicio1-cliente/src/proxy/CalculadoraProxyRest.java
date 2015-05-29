@@ -10,15 +10,15 @@ public class CalculadoraProxyRest implements CalculadoraProxy {
 	private Float calcular(Float a, Float b, String operacion) {
 		CalculadoraRequest request = new CalculadoraRequest();
 		request.setOp1(a);
-		request.setOp1(b);
+		request.setOp2(b);
 		request.setOperacion(operacion);
 		
 		JsonResponse response = calculadoraRest.calcular(request);
 		
 		if (response.getSuccess())
-			return (Float)response.getResult();
+			return new Float(response.getResult().toString());
 		else
-			throw new RuntimeException(response.getResult().toString());
+			throw new RuntimeException((String)response.getResult());
 	}
 	
 	public Float sumar(Float a, Float b) {

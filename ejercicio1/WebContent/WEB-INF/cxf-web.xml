@@ -34,7 +34,7 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
 	
 	<jaxrs:server address="/calculadora">
 		<jaxrs:serviceBeans>
-			<ref bean="calculadoraRest" />
+			<ref bean="calculadoraRestImpl" />
 		</jaxrs:serviceBeans>
 		<jaxrs:providers>
 			<ref bean='jsonProvider' />
