@@ -2,7 +2,9 @@ package model;
 
 import java.util.Date;
 
+import javax.activation.DataHandler;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlMimeType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -11,13 +13,15 @@ import javax.xml.bind.annotation.XmlType;
 	"id",
 	"nombre",
 	"apellido",
-	"fechaNacimiento"
+	"fechaNacimiento",
+	"foto"
 })
 public class Persona {
 	private Integer id;
 	private String nombre;
 	private String apellido;
 	private Date fechaNacimiento;
+	private DataHandler foto;
 	
 	public Persona() {
 	
@@ -64,6 +68,17 @@ public class Persona {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+
+	@XmlMimeType("application/octet-stream")
+	@XmlElement(name = "picture")
+	public DataHandler getFoto() {
+		return foto;
+	}
+
+	public void setFoto(DataHandler foto) {
+		this.foto = foto;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -108,5 +123,4 @@ public class Persona {
 			return false;
 		return true;
 	}
-	
 }

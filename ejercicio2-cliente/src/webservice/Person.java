@@ -1,9 +1,11 @@
 
 package webservice;
 
+import javax.activation.DataHandler;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlMimeType;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -23,6 +25,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="last-name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="birth-date" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/&gt;
+ *         &lt;element name="picture" type="{http://www.w3.org/2001/XMLSchema}base64Binary" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -36,7 +39,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "id",
     "name",
     "lastName",
-    "birthDate"
+    "birthDate",
+    "picture"
 })
 public class Person {
 
@@ -48,6 +52,8 @@ public class Person {
     @XmlElement(name = "birth-date")
     @XmlSchemaType(name = "dateTime")
     protected XMLGregorianCalendar birthDate;
+    @XmlMimeType("application/octet-stream")
+    protected DataHandler picture;
 
     /**
      * Gets the value of the id property.
@@ -143,6 +149,30 @@ public class Person {
      */
     public void setBirthDate(XMLGregorianCalendar value) {
         this.birthDate = value;
+    }
+
+    /**
+     * Gets the value of the picture property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link DataHandler }
+     *     
+     */
+    public DataHandler getPicture() {
+        return picture;
+    }
+
+    /**
+     * Sets the value of the picture property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link DataHandler }
+     *     
+     */
+    public void setPicture(DataHandler value) {
+        this.picture = value;
     }
 
 }
