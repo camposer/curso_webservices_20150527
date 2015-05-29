@@ -34,7 +34,7 @@ public class CalculadoraProxyRest implements CalculadoraProxy {
 	}
 
 	public Float dividir(Float a, Float b) {
-		return calcular(a, b, "DIVISIOn");	
+		return calcular(a, b, "DIVISION");	
 	}
 
 	public void setCalculadoraRest(CalculadoraRest calculadoraRest) {
