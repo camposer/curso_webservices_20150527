@@ -2,6 +2,7 @@ package test.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -57,7 +58,7 @@ public class PersonaServiceTest {
 		personaService.eliminarPersona(1);
 
 		assertTrue(personaService.obtenerPersonas().size() == 2);
-		assertTrue(personaService.obtenerPersona(1) == null);
+		assertNull(personaService.obtenerPersona(1));
 	}
 
 	@Configuration
